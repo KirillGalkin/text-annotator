@@ -1,11 +1,13 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { IArticle } from '../models/article.model';
 import { StorageService } from './storage.service';
+import { CRYPTO } from '../tokens/crypto.token';
 
 const KEY = 'articles';
 
 @Injectable({ providedIn: 'root' })
 export class ArticleService {
+  private readonly crypto = inject(CRYPTO);
   private readonly storage = inject(StorageService);
   private readonly _articles = signal<IArticle[]>(this.storage.get<IArticle>(KEY));
 
@@ -17,7 +19,7 @@ export class ArticleService {
 
   create(title: string, content: string): IArticle {
     const article: IArticle = {
-      id: crypto.randomUUID(),
+      id: this.crypto.randomUUID(),
       title,
       content,
     };
