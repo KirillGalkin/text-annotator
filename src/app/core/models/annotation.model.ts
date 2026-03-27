@@ -1,4 +1,4 @@
-export interface Annotation {
+export interface IAnnotation {
   id: string;
   articleId: string;
   startOffset: number;
