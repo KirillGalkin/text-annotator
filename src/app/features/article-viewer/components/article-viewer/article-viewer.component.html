@@ -12,7 +12,7 @@
       <div
         class="content-text"
         #container
-        (mouseup)="onMouseUp($event)"
+        (mouseup)="onMouseUp()"
       ></div>
     </div>
 
@@ -52,8 +52,8 @@
 <app-annotation-toolbar
   [visible]="toolbarVisible()"
   [position]="toolbarPosition()"
-  (save)="onAnnotationSave($event)"
-  (cancel)="onAnnotationCancel()"
+  (annotationSave)="onAnnotationSave($event)"
+  (annotationCancel)="onAnnotationCancel()"
 />
 
 <app-tooltip />

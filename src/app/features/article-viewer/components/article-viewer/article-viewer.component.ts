@@ -56,7 +56,7 @@ export class ArticleViewerComponent {
   );
 }
 
-protected onMouseUp(event: MouseEvent): void {
+protected onMouseUp(): void {
   const container = this.containerRef()?.nativeElement;
   if (!container) return;
 

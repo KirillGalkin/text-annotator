@@ -18,20 +18,20 @@ export class AnnotationToolbarComponent {
   readonly visible = input(false);
   readonly position = input({ x: 0, y: 0 });
 
-  readonly save = output<IAnnotationSaveEvent>();
-  readonly cancel = output<void>();
+  readonly annotationSave = output<IAnnotationSaveEvent>();
+  readonly annotationCancel = output<void>();
 
   protected readonly colors = PRESET_COLORS;
   protected readonly selectedColor = signal(PRESET_COLORS[4]);
   protected noteText = '';
 
   protected onSave(): void {
-    this.save.emit({ color: this.selectedColor(), note: this.noteText });
+    this.annotationSave.emit({ color: this.selectedColor(), note: this.noteText });
     this.reset();
   }
 
   protected onCancel(): void {
-    this.cancel.emit();
+    this.annotationCancel.emit();
     this.reset();
   }
 
