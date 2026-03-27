@@ -1,0 +1,36 @@
+<div class="form-container">
+  <header class="form-header">
+    <a routerLink="/" class="back-link">← Back</a>
+    <h1>{{ isEdit ? 'Edit article' : 'New article' }}</h1>
+  </header>
+
+  <form class="article-form" (submit)="onSubmit(); $event.preventDefault()">
+    <div class="field">
+      <label for="title">Title</label>
+      <input id="title" type="text" [formField]="articleForm.title" placeholder="Article title" />
+      @if (articleForm.title().touched() && articleForm.title().errors().length) {
+        <span class="error">{{ articleForm.title().errors()[0].message }}</span>
+      }
+    </div>
+
+    <div class="field">
+      <label for="content">Content</label>
+      <textarea
+        id="content"
+        [formField]="articleForm.content"
+        placeholder="Write your article..."
+        rows="16"
+      ></textarea>
+      @if (articleForm.content().touched() && articleForm.content().errors().length) {
+        <span class="error">{{ articleForm.content().errors()[0].message }}</span>
+      }
+    </div>
+
+    <div class="form-actions">
+      <a routerLink="/" class="btn btn-secondary">Cancel</a>
+      <button type="submit" class="btn btn-primary">
+        {{ isEdit ? 'Save changes' : 'Create article' }}
+      </button>
+    </div>
+  </form>
+</div>

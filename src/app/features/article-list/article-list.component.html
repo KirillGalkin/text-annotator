@@ -1,0 +1,25 @@
+<div class="list-container">
+  <header class="list-header">
+    <h1>Articles</h1>
+    <a routerLink="/article/new" class="btn btn-primary">New article</a>
+  </header>
+
+  @if (articleService.articles().length === 0) {
+    <div class="empty-state">
+      <p>No articles yet. Create your first one!</p>
+    </div>
+  } @else {
+    <ul class="article-list">
+      @for (article of articleService.articles(); track article.id) {
+        <li class="article-card">
+          <a [routerLink]="['/article', article.id]" class="article-link">
+            <span class="article-title">{{ article.title }}</span>
+          </a>
+          <button class="btn btn-danger" (click)="deleteArticle(article.id, $event)">
+            Delete
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</div>
