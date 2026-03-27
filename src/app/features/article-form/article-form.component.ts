@@ -8,7 +8,7 @@ import { ArticleService } from '../../core/services/article.service';
   imports: [FormField, RouterLink],
   templateUrl: './article-form.component.html',
   styleUrl: './article-form.component.scss',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ArticleFormComponent {
   private readonly route = inject(ActivatedRoute);
