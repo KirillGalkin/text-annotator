@@ -1,0 +1,59 @@
+@if (article(); as article) {
+  <div class="viewer-container">
+    <header class="viewer-header">
+      <a routerLink="/" class="back-link">← Articles</a>
+      <div class="header-actions">
+        <h1>{{ article.title }}</h1>
+        <a [routerLink]="['/article', articleId, 'edit']" class="btn-edit">Edit</a>
+      </div>
+    </header>
+
+    <div class="viewer-body">
+      <div
+        class="content-text"
+        #container
+        (mouseup)="onMouseUp($event)"
+      ></div>
+    </div>
+
+    @if (annotations().length > 0) {
+      <aside class="annotations-panel">
+        <h2>Annotations</h2>
+        <ul class="annotation-list">
+          @for (annotation of annotations(); track annotation.id) {
+            <li class="annotation-item">
+              <span class="color-dot" [style.background]="annotation.color"></span>
+              <div class="annotation-body">
+                <p class="annotation-quote">
+                  "{{ getAnnotationText(annotation.startOffset, annotation.endOffset) }}"
+                </p>
+                @if (annotation.note) {
+                  <p class="annotation-note">{{ annotation.note }}</p>
+                }
+              </div>
+              <button class="btn-remove" (click)="removeAnnotation(annotation.id)">×</button>
+            </li>
+          }
+        </ul>
+      </aside>
+    }
+  </div>
+} @else {
+  <div class="not-found">
+    <p>Article not found.</p>
+    <a routerLink="/">← Back to list</a>
+  </div>
+}
+
+@if (selectionError()) {
+  <div class="selection-error">{{ selectionError() }}</div>
+}
+
+<app-annotation-toolbar
+  [visible]="toolbarVisible()"
+  [position]="toolbarPosition()"
+  (save)="onAnnotationSave($event)"
+  (cancel)="onAnnotationCancel()"
+/>
+
+<app-tooltip />

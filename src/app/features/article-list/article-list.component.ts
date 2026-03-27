@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ArticleService } from '../../core/services/article.service';
+import { AnnotationService } from '../../core/services/annotation.service';
 
 @Component({
   selector: 'app-article-list',
@@ -10,10 +11,13 @@ import { ArticleService } from '../../core/services/article.service';
 })
 export class ArticleListComponent {
   protected readonly articleService = inject(ArticleService);
+private readonly annotationService = inject(AnnotationService);
 
-  protected deleteArticle(id: string, event: Event): void {
-    event.preventDefault();
-    event.stopPropagation();
-    this.articleService.remove(id);
-  }
+protected deleteArticle(id: string, event: Event): void {
+  event.preventDefault();
+  event.stopPropagation();
+  this.annotationService.removeForArticle(id);
+  this.articleService.remove(id);
+}
+
 }

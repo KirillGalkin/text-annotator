@@ -25,7 +25,7 @@ export const routes: Routes = [
   {
     path: 'article/:id',
     loadComponent: () =>
-      import('./features/article-viewer/article-viewer.component').then(
+      import('./features/article-viewer/components/article-viewer/article-viewer.component').then(
         (m) => m.ArticleViewerComponent
       ),
   },

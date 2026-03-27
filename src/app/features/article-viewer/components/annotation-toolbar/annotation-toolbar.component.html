@@ -1,0 +1,26 @@
+@if (visible()) {
+  <div class="toolbar" [style.top.px]="position().y" [style.left.px]="position().x">
+    <p class="toolbar-label">Highlight color</p>
+    <div class="color-row">
+      @for (color of colors; track color) {
+        <button
+          type="button"
+          class="color-btn"
+          [style.background]="color"
+          [class.active]="selectedColor() === color"
+          (click)="selectedColor.set(color)"
+        ></button>
+      }
+    </div>
+    <textarea
+      class="note-input"
+      [(ngModel)]="noteText"
+      placeholder="Add a note (optional)..."
+      rows="3"
+    ></textarea>
+    <div class="toolbar-actions">
+      <button type="button" class="btn btn-cancel" (click)="onCancel()">Cancel</button>
+      <button type="button" class="btn btn-save" (click)="onSave()">Save</button>
+    </div>
+  </div>
+}

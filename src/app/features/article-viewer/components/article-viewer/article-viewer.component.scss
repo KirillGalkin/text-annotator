@@ -1,0 +1,162 @@
+.viewer-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.viewer-header {
+  margin-bottom: 2rem;
+
+  .back-link {
+    display: inline-block;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+
+    &:hover {
+      color: #4f46e5;
+    }
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+}
+
+.viewer-body {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.content-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #1f2937;
+  white-space: pre-wrap;
+  word-break: break-word;
+  user-select: text;
+}
+
+.annotations-panel {
+  margin-top: 2rem;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.annotation-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.annotation-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.selection-error {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  z-index: 100;
+  pointer-events: none;
+}
+
+
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.annotation-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.annotation-quote {
+  font-size: 0.875rem;
+  color: #374151;
+  font-style: italic;
+}
+
+.annotation-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.btn-remove {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.25rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+
+  &:hover {
+    color: #ef4444;
+  }
+}
+
+.btn-edit {
+  padding: 0.375rem 1rem;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+
+  &:hover {
+    background: #e5e7eb;
+  }
+}
+
+.not-found {
+  max-width: 800px;
+  margin: 4rem auto;
+  text-align: center;
+  color: #6b7280;
+
+  a {
+    color: #4f46e5;
+    text-decoration: none;
+  }
+}

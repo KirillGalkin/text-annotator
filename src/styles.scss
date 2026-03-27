@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'modern-normalize';
+@use 'modern-normalize';
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -14,4 +14,8 @@ body {
 
 button {
   font-family: inherit;
+}
+
+ul {
+    padding-inline-start: 0;
 }
